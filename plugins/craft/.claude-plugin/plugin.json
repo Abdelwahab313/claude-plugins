@@ -1,0 +1,8 @@
+{
+  "name": "craft",
+  "version": "0.1.0",
+  "description": "Stack-agnostic engineering skills: test-driven development loop and architecture design/review.",
+  "author": {
+    "name": "Abdelwahab313"
+  }
+}

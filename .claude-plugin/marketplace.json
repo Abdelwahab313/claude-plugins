@@ -1,0 +1,19 @@
+{
+  "name": "abdelwahab-plugins",
+  "description": "Abdelwahab's reusable Claude Code skills: TDD, architecture design/review, NestJS patterns.",
+  "owner": {
+    "name": "Abdelwahab313"
+  },
+  "plugins": [
+    {
+      "name": "craft",
+      "source": "./plugins/craft",
+      "description": "Stack-agnostic engineering skills: test-driven development loop and architecture design/review."
+    },
+    {
+      "name": "nestjs",
+      "source": "./plugins/nestjs",
+      "description": "NestJS structure and coding conventions: module boundaries, DTOs, errors, persistence, background work."
+    }
+  ]
+}

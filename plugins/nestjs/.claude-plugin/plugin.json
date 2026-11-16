@@ -1,0 +1,8 @@
+{
+  "name": "nestjs",
+  "version": "0.1.0",
+  "description": "NestJS structure and coding conventions: module boundaries, DTOs, errors, persistence, background work.",
+  "author": {
+    "name": "Abdelwahab313"
+  }
+}
