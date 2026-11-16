@@ -1,7 +1,7 @@
 {
   "name": "craft",
-  "version": "0.1.0",
-  "description": "Stack-agnostic engineering skills: test-driven development loop and architecture design/review.",
+  "version": "0.2.0",
+  "description": "Stack-agnostic engineering: TDD and design skills plus a read-only reviewer agent.",
   "author": {
     "name": "Abdelwahab313"
   }

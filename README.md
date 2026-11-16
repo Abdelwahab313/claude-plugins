@@ -2,10 +2,12 @@
 
 My Claude Code plugin marketplace: reusable skills I install per project.
 
-| Plugin | Skills | Use in |
+| Plugin | Contents | Use in |
 |---|---|---|
-| `craft` | `tdd`, `design-review` | Any backend project |
-| `nestjs` | `nestjs-patterns` | NestJS projects |
+| `craft` | Skills `tdd`, `design-review`; agent `reviewer` (read-only: Read, Grep, Glob, Bash) | Any backend project |
+| `nestjs` | Skill `nestjs-patterns` | NestJS projects |
+
+Skills shape how the main agent works while it builds. Review is an agent instead of a skill so it runs in its own context with a tool list that cannot edit files, independent of the code it judges.
 
 ## Install into one project
 

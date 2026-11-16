@@ -8,7 +8,7 @@
     {
       "name": "craft",
       "source": "./plugins/craft",
-      "description": "Stack-agnostic engineering skills: test-driven development loop and architecture design/review."
+      "description": "Stack-agnostic engineering: TDD and design skills plus a read-only reviewer agent."
     },
     {
       "name": "nestjs",

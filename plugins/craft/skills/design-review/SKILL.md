@@ -1,13 +1,11 @@
 ---
 name: design-review
-description: Architecture and design for backend services, in two modes. "design" turns the user's stated decisions into a DESIGN.md (invariants, data model, API contract, failure modes, trade-offs) before code exists. "review" is a read-only audit of code or a plan against that design and a rubric, reporting only real findings with file:line. Use when starting a feature or service, when the user asks to design, plan or document architecture, or asks to review design, architecture or code quality.
+description: Turn the user's stated architecture decisions into a DESIGN.md (invariants, data model, API contract, flows, failure modes, trade-offs, out of scope) before code exists, and keep it in sync as decisions change. Use when starting a feature or service, or when the user asks to design, plan or document architecture. For an independent audit of code against the design, delegate to the craft reviewer agent instead.
 ---
 
-# Design review
+# Design
 
 The human owns the decisions. This skill structures and stress-tests them; it does not invent requirements. If a decision is missing, list it as an open question instead of choosing silently.
-
-## Mode: design
 
 Write `DESIGN.md` from what the user said, in this order, no more than about one page:
 
@@ -20,23 +18,10 @@ Write `DESIGN.md` from what the user said, in this order, no more than about one
 7. **Trade-offs.** Decision → alternatives rejected → why, and what changes in production.
 8. **Out of scope.** Said explicitly.
 
-Then list open questions. Do not write code in this mode.
+Then list open questions. Do not write code while designing.
 
-## Mode: review (read-only)
+When a decision changes later, update DESIGN.md in place with the final value; no history of earlier versions in the doc.
 
-Do not edit files. Read the design, then the code it covers.
+## Review
 
-Rubric:
-- **Invariants:** each one is enforced in code and covered by a test. Trace the path end to end; do not trust names.
-- **Boundaries:** dependencies point inward (controller → service → pure logic / repository). No HTTP in services, no queries in controllers, no cross-module repository access.
-- **Atomicity and concurrency:** multi-write use cases are atomic; state transitions are guarded against double execution; no fire-and-forget.
-- **Data exposure:** sensitive fields are excluded at query level and absent from DTOs; errors do not leak internals.
-- **Failure handling:** every side effect has a defined failure path and recorded status.
-- **Simplicity:** no abstraction without a second use; no speculative config or layers. Flag over-engineering as firmly as gaps.
-- **Drift:** code that contradicts DESIGN.md, or design claims no code implements.
-
-Output:
-- Only **Critical** (breaks an invariant, loses data, security) and **Important** (likely bug, wrong boundary, missing test for an invariant) findings. No style nits.
-- Each finding: severity, `file:line`, the concrete failure scenario (input → wrong result), and the smallest fix.
-- End with a verdict line: `PASS` or `FAIL (n critical, m important)`.
-- If nothing survives, say PASS and list what you checked.
+Do not self-review your own implementation. Hand the audit to the `reviewer` agent from this plugin (read-only, separate context), passing it the paths or diff to check, and report its verdict as-is.
